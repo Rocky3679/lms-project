@@ -7,7 +7,17 @@ const {
     loginUser
 } = require("../controllers/authController");
 
+const authenticateToken = require("../middleware/authMiddleware");
+
 router.post("/register", registerUser);
 router.post("/login", loginUser);
+
+router.get("/profile", authenticateToken, (req, res) => {
+    res.json({
+        success: true,
+        message: "Protected route accessed successfully",
+        user: req.user
+    });
+});
 
 module.exports = router;
