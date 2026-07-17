@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+
 require("dotenv").config();
 
 const pool = require("./config/db");
@@ -7,6 +8,7 @@ const pool = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
 const courseRoutes = require("./routes/courseRoutes");
 const userRoutes = require("./routes/userRoutes");
+const lessonRoutes = require("./routes/lessonRoutes");
 
 const app = express();
 
@@ -17,6 +19,7 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/courses", courseRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/lessons", lessonRoutes);
 
 // Test Database
 app.get("/test-db", async (req, res) => {
