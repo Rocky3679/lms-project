@@ -1,4 +1,5 @@
 const express = require("express");
+const authorizeRoles = require("../middleware/roleMiddleware");
 
 const router = express.Router();
 
@@ -19,5 +20,19 @@ router.get("/profile", authenticateToken, (req, res) => {
         user: req.user
     });
 });
+
+router.get(
+    "/admin",
+    authenticateToken,
+    authorizeRoles("admin"),
+    (req, res) => {
+
+        res.json({
+            success: true,
+            message: "Welcome Admin!"
+        });
+
+    }
+);
 
 module.exports = router;
