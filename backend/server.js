@@ -9,6 +9,8 @@ const authRoutes = require("./routes/authRoutes");
 const courseRoutes = require("./routes/courseRoutes");
 const userRoutes = require("./routes/userRoutes");
 const lessonRoutes = require("./routes/lessonRoutes");
+const enrollmentRoutes = require("./routes/enrollmentRoutes");
+const assignmentRoutes = require("./routes/assignmentRoutes");
 
 const app = express();
 
@@ -20,6 +22,8 @@ app.use("/api/auth", authRoutes);
 app.use("/api/courses", courseRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/lessons", lessonRoutes);
+app.use("/api/enrollments", enrollmentRoutes);
+app.use("/api/assignments", assignmentRoutes);
 
 // Test Database
 app.get("/test-db", async (req, res) => {
