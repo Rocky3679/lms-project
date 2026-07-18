@@ -12,6 +12,7 @@ const lessonRoutes = require("./routes/lessonRoutes");
 const enrollmentRoutes = require("./routes/enrollmentRoutes");
 const assignmentRoutes = require("./routes/assignmentRoutes");
 const quizRoutes = require("./routes/quizRoutes");
+const submissionRoutes = require("./routes/submissionRoutes");
 
 const app = express();
 
@@ -26,6 +27,7 @@ app.use("/api/lessons", lessonRoutes);
 app.use("/api/enrollments", enrollmentRoutes);
 app.use("/api/assignments", assignmentRoutes);
 app.use("/api/quizzes", quizRoutes);
+app.use("/api/submissions", submissionRoutes);
 
 // Test Database
 app.get("/test-db", async (req, res) => {
