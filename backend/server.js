@@ -13,6 +13,8 @@ const enrollmentRoutes = require("./routes/enrollmentRoutes");
 const assignmentRoutes = require("./routes/assignmentRoutes");
 const quizRoutes = require("./routes/quizRoutes");
 const submissionRoutes = require("./routes/submissionRoutes");
+const questionRoutes = require("./routes/questionRoutes");
+const quizAttemptRoutes = require("./routes/quizAttemptRoutes");
 
 const app = express();
 
@@ -28,6 +30,8 @@ app.use("/api/enrollments", enrollmentRoutes);
 app.use("/api/assignments", assignmentRoutes);
 app.use("/api/quizzes", quizRoutes);
 app.use("/api/submissions", submissionRoutes);
+app.use("/api/questions", questionRoutes);
+app.use("/api/quiz-attempts", quizAttemptRoutes);
 
 // Test Database
 app.get("/test-db", async (req, res) => {
